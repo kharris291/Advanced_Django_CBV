@@ -1,4 +1,5 @@
-from django.shortcuts import render
+import json
+
 from django.urls import reverse_lazy
 from django.http import HttpResponse
 from django.views.generic import (View, TemplateView,
@@ -8,16 +9,6 @@ from django.views.generic import (View, TemplateView,
 from . import models
 
 
-# Create your views here.
-
-# Original Function View:
-#
-# def index(request):
-#     return render(request,'index.html')
-#
-#
-
-# Pretty simple right?
 class IndexView(TemplateView):
     # Just set this Class Object Attribute to the template page.
     # template_name = 'app_name/site.html'
@@ -36,7 +27,7 @@ class SchoolListView(ListView):
     # Default would be 'school_list'
 
     # Example of making your own:
-    # context_object_name = 'schools'
+    context_object_name = 'schools'
     model = models.School
 
 
@@ -63,4 +54,4 @@ class SchoolDeleteView(DeleteView):
 
 class CBView(View):
     def get(self, request):
-        return HttpResponse('Class Based Views are Cool!')
+        return HttpResponse("CLASS BASED VIEWS SUCK")

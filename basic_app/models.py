@@ -8,6 +8,13 @@ class School(models.Model):
     principal = models.CharField(max_length=256)
     location = models.CharField(max_length=256)
 
+    # def save(
+    #     self, force_insert=False, force_update=False, using=None, update_fields=None
+    # ):
+    #     print("update")
+    #     self.save()
+
+
     def __str__(self):
         return self.name
 

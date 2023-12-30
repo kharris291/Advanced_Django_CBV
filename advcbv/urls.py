@@ -23,6 +23,5 @@ urlpatterns = [
     re_path(r'^admin/', admin.site.urls, name='admin'),
     re_path(r'^$', views.IndexView.as_view()),
     re_path(r'^basic_app/', include('basic_app.urls', namespace='basic_app')),
-    # url(r'^$',views.CBView.as_view()),
-    # url(r'^$',views.index)
+    re_path(r'^cbview/$', views.CBView.as_view())
 ]
