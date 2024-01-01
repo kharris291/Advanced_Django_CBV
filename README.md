@@ -1,1 +1,1 @@
-Code for Section 21 of Python course
+Code for Section 24 of Python course
