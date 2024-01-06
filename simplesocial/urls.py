@@ -14,16 +14,19 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls import include
 from django.contrib import admin
-from django.urls import path, re_path, include
+from django.urls import re_path
 
-from simplesocial import views
+from . import views
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    re_path(r'^$', views.HomePage.as_view(), name='home'),
-    re_path(r'^accounts/', include('accounts.urls', namespace='accounts')),
-    re_path(r'^accounts/', include('django.contrib.auth.urls')),
-    re_path(r'^test/$', views.TestPage.as_view(), name='test'),
+    re_path(r"^$", views.HomePage.as_view(), name="home"),
+    re_path(r"^test/$", views.TestPage.as_view(), name="test"),
     re_path(r"^thanks/$", views.ThanksPage.as_view(), name="thanks"),
+    re_path(r"^admin/", admin.site.urls),
+    re_path(r"^accounts/", include("accounts.urls", namespace="accounts")),
+    re_path(r"^accounts/", include("django.contrib.auth.urls")),
+    re_path(r"^posts/", include("posts.urls", namespace="posts")),
+    re_path(r"^groups/", include("groups.urls", namespace="groups")),
 ]
